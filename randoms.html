@@ -21,7 +21,7 @@ var randomposts_current = new Array(randomposts_number);
 function randomposts(json) {
     total_randomposts = json.feed.openSearch$totalResults.$t
 }
-document.write('<script type=\"text/javascript\" src=\"https//" + blogurl + '/feeds/posts/default?alt=json-in-script&max-results=0&callback=popularposts\'"><\/script>');
+document.write('<script type=\"text/javascript\" src=\"https//101helper.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=0&callback=popularposts\"><\/script>');
 
 function getvalue() {
     for (var i = 0; i < randomposts_number; i++) {
@@ -90,7 +90,7 @@ function random_posts(json) {
 };
 getvalue();
 for (var i = 0; i < randomposts_number; i++) {
-    document.write('<script type=\"text/javascript\" src=\"https://" +blogurl+ '/feeds/posts/default?alt=json-in-script&start-index=' + randomposts_current[i] + '&max-results=1&callback=random_posts\"><\/script>')
+    document.write('<script type=\"text/javascript\" src=\"https://101helper.blogspot.com/feeds/posts/default?alt=json-in-script&start-index=' + randomposts_current[i] + '&max-results=1&callback=random_posts\"><\/script>')
 };
 </script>
 </ul>
