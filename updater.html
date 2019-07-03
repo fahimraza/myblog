@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Updated Posts</title>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:300,400italic,400,500,500italic,700,700italic,900%7CMaterial+Icons' rel='stylesheet' type='text/css'/>
+<style>
+body {
+  background-color:transparent;
+  margin:0;
+  padding:0;
+  overflow:hidden;font-family:'Roboto'
+}
+ iframe{border:0;}
+#updated-posts {
+    color: #808080
+}li.update a {
+    color: #2196F3;
+    text-decoration: none;
+    font-weight: 300;font-family:'Roboto'; font-size: 13px;
+}
+li.update {
+    height: 60px;
+    overflow: hidden;
+    list-style: none;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 0;
+    border-top: 1px solid #fdfdfd;
+}
+  .imgupdate { float:left; margin:5px 10px 0 5px } 
+  .tgl-com { display:block;font-size: 11px;
+    padding-top: 5px;}
+  ol#updated-posts {
+    margin: 0;
+    padding: 0;
+}li.update a:hover {
+    color: #00ab60;
+}
+.credit {
+    Float: right;
+    font-size: 70%;
+    text-decoration: none;
+    right: 10px;
+    position: relative;
+    top: 10px;
+}
+  </style>
+	<script>
+function getQueryVariable(variable) {
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i=0;i<vars.length;i++) {
+		var pair = vars[i].split("=");
+		if(pair[0] == variable){return pair[1];}
+	}
+	return(false);
+}
+</script>
+</head>
+<body>
+<ol id="updated-posts"></ol>
+<script>
+    //<![CDATA[
+    var homePage = getQueryVariable("url"),
+        numPosts = 5
+        //]]>
+</script>
+  <script>
+function updatedPosts(a) {
+    if (document.getElementById("updated-posts")) {
+        var e = a.feed.entry,
+            title, img, link, date, content = "",
+            ct = document.getElementById("updated-posts");
+        for (var i = 0; i < 7; i++) {
+            for (var j = 0; j < 7; j++) {
+                if (e[i].link[j].rel == "alternate") {
+                    link = e[i].link[j].href;
+                    break
+                }
+            }
+            var title = e[i].title.$t,
+                pd = e[i].published.$t.substring(0, 10),
+                date = pd.replace(/-/g, "/");
+            if ("media$thumbnail" in e[i]) {
+                img = e[i].media$thumbnail.url
+            } else {
+                img = "https://2.bp.blogspot.com/-UqZAzvrQxfo/WQa6cs7hA7I/AAAAAAAAMgk/LUJhBACQTd4pb2MLR7RmKJJShX4uFfKEwCLcB/s40/images%2B%25281%2529.jpg"
+            }
+            content += '<li class="update"><img src="' + img.replace(/\/s72-c/, "/s40-c") + '" class="imgupdate" alt="thumb" height="40px" width="40px"/>';
+            content += '<strong><a href="' + link + '" target="_blank">' + title + '</a></strong><span class="tgl-com"> Updated on: ' + date + "</span></li>";
+        }
+        ct.innerHTML = content
+    }
+}
+var you_script = document.createElement('script');
+you_script.src = homePage + '/feeds/posts/summary?alt=json-in-script&orderby=updated&max-results=7&callback=updatedPosts';
+document.getElementsByTagName('head')[0].appendChild(you_script);
+
+
+ </script>
+	<div class="credit"><a href="https://101helper.blogspot.com/2019/07/updated-posts-widget-for-blogger-101helper.html">Get this widget.</a></div>
+</body>
+</html>
