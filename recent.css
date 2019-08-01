@@ -1,7 +1,6 @@
 .grid {
     width: 1200px;
-    margin: auto;
-display:none
+    margin: auto
 }
 .grid-child {
     width: 350px;
@@ -35,7 +34,7 @@ ul.label_with_thumbs li {
     display: block;
     text-align: left;
 }
-.label_with_thumbs a {
+.label_with_thumbs .clearfix a {
     margin: 0;
     font-weight: normal;
     color: #000;
