@@ -1,0 +1,59 @@
+.grid {
+    width: 1200px;
+    margin: auto;
+display:none
+}
+.grid-child {
+    width: 350px;
+    margin: 0 20px;
+    background: #fff;
+    text-align: center;
+    height: 330px;
+    padding: 10px 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #bbb;
+    float: left;
+    margin-top: 40px;
+}
+.grid-name {
+    background: #fff;
+    font-size: 20px;
+    margin: 7px;
+    color: #000;
+}
+.label_with_thumbs {
+    float: left;
+    background: #fff;
+    min-height: 70px;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+ul.label_with_thumbs li {
+    padding: 8px;
+    min-height: 70px;
+    list-style: none;
+    display: block;
+    text-align: left;
+}
+.label_with_thumbs a {
+    margin: 0;
+    font-weight: normal;
+    color: #000;
+}
+img.label_thumb {
+    float: left;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+}
+.label_with_thumbs strong {
+    padding-left: 0px;
+}
+a#loader {
+    background: #ff5e00;
+    color: #fff;
+    padding: 5px 15px;
+    position: relative;
+    top: 13px;
+    text-decoration: none;
+    border-radius: 3px;
+}
